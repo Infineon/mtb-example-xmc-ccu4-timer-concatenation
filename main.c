@@ -8,7 +8,7 @@
 *
 ******************************************************************************
 *
-* Copyright (c) 2015-2020, Infineon Technologies AG
+* Copyright (c) 2015-2021, Infineon Technologies AG
 * All rights reserved.                        
 *                                             
 * Boost Software License - Version 1.0 - August 17th, 2003
@@ -56,7 +56,7 @@
 *  none
 *
 * Return:
-*  the current time in microseconds
+* uint32_t: the current time in microseconds
 *
 *******************************************************************************/
 static uint32_t sys_now(void)
@@ -100,7 +100,7 @@ int main(void)
 
     /* Initialize the device and board peripherals */
     result = cybsp_init();
-    if (result != CY_RSLT_SUCCESS)
+    if (CY_RSLT_SUCCESS != result)
     {
         CY_ASSERT(0);
     }
