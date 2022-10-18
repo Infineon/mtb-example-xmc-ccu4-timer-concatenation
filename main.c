@@ -68,10 +68,10 @@ static uint32_t sys_now(void)
 
     do
     {
-        timer_h0 = XMC_CCU4_SLICE_GetTimerValue(COUNTER_H_HW);
-        timer_l = XMC_CCU4_SLICE_GetTimerValue(COUNTER_L_HW);
+        timer_h0 = XMC_CCU4_SLICE_GetTimerValue(COUNTER_H_HW);      // Retrieves the latest timer value,from CC4yTIMER register for Timer slice CCU40_CC41 
+        timer_l = XMC_CCU4_SLICE_GetTimerValue(COUNTER_L_HW);       // Retrieves the latest timer value,from CC4yTIMER register for Timer slice CCU40_CC40 
         timer_h1 = XMC_CCU4_SLICE_GetTimerValue(COUNTER_H_HW);
-        retval = (uint32_t)(timer_h1 << 16) | (uint32_t)timer_l;
+        retval = (uint32_t)(timer_h1 << 16) | (uint32_t)timer_l;    // Returns the current timer value in microseconds
     }
     while (timer_h0 != timer_h1);
 
